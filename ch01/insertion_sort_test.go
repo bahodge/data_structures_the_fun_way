@@ -3,12 +3,14 @@ package ch01
 import (
 	"reflect"
 	"testing"
+
+	"github.com/bahodge/data_structures_the_fun_way/fixtures"
 )
 
 func TestSortedArray(t *testing.T) {
-	input := []int{1, 2, 3, 4, 5, 6, 7, 8, 9, 10}
+	input := fixtures.SortedInts
 	got := insertionSort(input)
-	want := []int{1, 2, 3, 4, 5, 6, 7, 8, 9, 10}
+	want := fixtures.SortedInts
 
 	if !reflect.DeepEqual(got, want) {
 		t.Errorf("got %+v, want %+v", got, want)
@@ -17,9 +19,9 @@ func TestSortedArray(t *testing.T) {
 }
 
 func TestUnsortedArray(t *testing.T) {
-	input := []int{5, 2, 7, 6, 3, 8, 9, 1, 10, 4}
+	input := fixtures.UnsortedInts
 	got := insertionSort(input)
-	want := []int{1, 2, 3, 4, 5, 6, 7, 8, 9, 10}
+	want := fixtures.SortedInts
 
 	if !reflect.DeepEqual(got, want) {
 		t.Errorf("got %+v, want %+v", got, want)
@@ -28,9 +30,9 @@ func TestUnsortedArray(t *testing.T) {
 }
 
 func TestDuplicates(t *testing.T) {
-	input := []int{1, 3, 5, 7, 9, 9, 7, 5, 3, 1}
+	input := fixtures.UnsortedDupeInts
 	got := insertionSort(input)
-	want := []int{1, 1, 3, 3, 5, 5, 7, 7, 9, 9}
+	want := fixtures.SortedDupeInts
 
 	if !reflect.DeepEqual(got, want) {
 		t.Errorf("got %+v, want %+v", got, want)
