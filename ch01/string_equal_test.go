@@ -1,4 +1,4 @@
-package main
+package ch01
 
 import (
 	"reflect"
@@ -8,7 +8,7 @@ import (
 func TestEqual(t *testing.T) {
 	str := "hello world"
 	test := "hello world"
-	got := StringEqual(str, test)
+	got := stringEqual(str, test)
 	want := true
 
 	if !reflect.DeepEqual(got, want) {
@@ -20,7 +20,7 @@ func TestEqual(t *testing.T) {
 func TestNotEqualLength(t *testing.T) {
 	str := "hello world"
 	test := "hello world "
-	got := StringEqual(str, test)
+	got := stringEqual(str, test)
 	want := false
 
 	if !reflect.DeepEqual(got, want) {
@@ -32,7 +32,7 @@ func TestNotEqualLength(t *testing.T) {
 func TestNotEqual(t *testing.T) {
 	str := "hello world"
 	test := "helLo world"
-	got := StringEqual(str, test)
+	got := stringEqual(str, test)
 	want := false
 
 	if !reflect.DeepEqual(got, want) {
