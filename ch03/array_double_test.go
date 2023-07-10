@@ -8,7 +8,7 @@ import (
 
 func TestArrayDouble(t *testing.T) {
 	a := fixtures.SortedInts
-	got := arrayDouble(a)
+	got := ArrayDouble(a)
 	// Want this capacity
 	want := len(a) * 2
 

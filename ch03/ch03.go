@@ -6,7 +6,7 @@ import (
 	"github.com/bahodge/data_structures_the_fun_way/fixtures"
 )
 
-func arrayDouble(a []int) []int {
+func ArrayDouble(a []int) []int {
 	length := len(a)
 	newArr := make([]int, 2*length)
 	i := 0
@@ -18,12 +18,12 @@ func arrayDouble(a []int) []int {
 	return newArr
 }
 
-type linkedListNode struct {
+type LinkedListNode struct {
 	value int
-	next  *linkedListNode
+	next  *LinkedListNode
 }
 
-func linkedListLookup(head *linkedListNode, index int) *linkedListNode {
+func LinkedListLookup(head *LinkedListNode, index int) *LinkedListNode {
 	current := head
 	i := 0
 	for i < index && current != nil {
@@ -34,19 +34,19 @@ func linkedListLookup(head *linkedListNode, index int) *linkedListNode {
 	return current
 }
 
-func linkedListAppend(prev *linkedListNode, newNode *linkedListNode) {
+func LinkedListAppend(prev *LinkedListNode, newNode *LinkedListNode) {
 	newNode.next = prev.next
 	prev.next = newNode
 }
 
-func linkedListInsert(head *linkedListNode, index int, newNode *linkedListNode) (*linkedListNode, error) {
+func LinkedListInsert(head *LinkedListNode, index int, newNode *LinkedListNode) (*LinkedListNode, error) {
 	if index == 0 {
 		newNode.next = head
 		return newNode, nil
 	}
 
 	current := head
-	var previous *linkedListNode = nil
+	var previous *LinkedListNode = nil
 	count := 0
 
 	for count < index && current != nil {
@@ -68,7 +68,7 @@ func linkedListInsert(head *linkedListNode, index int, newNode *linkedListNode) 
 
 }
 
-func linkedListDelete(head *linkedListNode, index int) (*linkedListNode, error) {
+func linkedListDelete(head *LinkedListNode, index int) (*LinkedListNode, error) {
 	if head == nil {
 		return nil, nil
 	}
@@ -80,7 +80,7 @@ func linkedListDelete(head *linkedListNode, index int) (*linkedListNode, error) 
 	}
 
 	current := head
-	var previous *linkedListNode = nil
+	var previous *LinkedListNode = nil
 	count := 0
 
 	for count < index && current != nil {
@@ -102,28 +102,28 @@ func linkedListDelete(head *linkedListNode, index int) (*linkedListNode, error) 
 
 func Run() {
 
-	n0 := &linkedListNode{
+	n0 := &LinkedListNode{
 		value: 0,
 		next:  nil,
 	}
-	n1 := &linkedListNode{
+	n1 := &LinkedListNode{
 		value: 1,
 		next:  nil,
 	}
-	n2 := &linkedListNode{
+	n2 := &LinkedListNode{
 		value: 2,
 		next:  nil,
 	}
 
-	linkedListAppend(n0, n1)
-	linkedListAppend(n1, n2)
+	LinkedListAppend(n0, n1)
+	LinkedListAppend(n1, n2)
 
 	fmt.Println("----------------ch03 start-----------------")
-	fmt.Printf("arrayDouble 1 before %d, after %d\n", len(fixtures.SortedInts), len(arrayDouble(fixtures.SortedInts)))
-	fmt.Printf("arrayDouble 2 before %d, after %d\n", len(fixtures.SortedDupeInts), len(arrayDouble(fixtures.SortedDupeInts)))
-	fmt.Printf("linkedListLookup 1 %+v\n", linkedListLookup(n0, 0))
-	fmt.Printf("linkedListLookup 2 %+v\n", linkedListLookup(n0, 2))
-	fmt.Printf("linkedListLookup 3 %+v\n", linkedListLookup(n0, 8))
+	fmt.Printf("arrayDouble 1 before %d, after %d\n", len(fixtures.SortedInts), len(ArrayDouble(fixtures.SortedInts)))
+	fmt.Printf("arrayDouble 2 before %d, after %d\n", len(fixtures.SortedDupeInts), len(ArrayDouble(fixtures.SortedDupeInts)))
+	fmt.Printf("linkedListLookup 1 %+v\n", LinkedListLookup(n0, 0))
+	fmt.Printf("linkedListLookup 2 %+v\n", LinkedListLookup(n0, 2))
+	fmt.Printf("linkedListLookup 3 %+v\n", LinkedListLookup(n0, 8))
 	fmt.Println("----------------ch03 end-----------------")
 
 }
