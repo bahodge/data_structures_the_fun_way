@@ -5,6 +5,7 @@ import (
 	"github.com/bahodge/data_structures_the_fun_way/ch02"
 	"github.com/bahodge/data_structures_the_fun_way/ch03"
 	"github.com/bahodge/data_structures_the_fun_way/ch04"
+	"github.com/bahodge/data_structures_the_fun_way/ch05"
 )
 
 func main() {
@@ -12,4 +13,5 @@ func main() {
 	ch02.Run()
 	ch03.Run()
 	ch04.Run()
+	ch05.Run()
 }
